@@ -59,12 +59,14 @@ end
 
 -- execute the sorting algorithm
 -- if sortAlg is nil, it calls table.sort instead
-function launchSort(sortAlg, sortName, tb)
+-- prt = true => print data
+function launchSort(sortAlg, sortName, tb, prt)
   io.write('Sort with ' .. sortName .. '... \t')
   -- create a new copy of the table
   local tb = table.pack(table.unpack(tb))
   local a, t1, t2
   local sortAlg = sortAlg
+  local prt = prt or false
   -- measures the running time
   if sortAlg == nil then
     t1 = os.clock()
@@ -77,7 +79,7 @@ function launchSort(sortAlg, sortName, tb)
     t2 = os.clock()
   end
   io.write('Time: ' .. (t2 - t1) .. '\t' )
-  print('Ordered: ' .. verifyArray(a))
+  print('Ordered: ' .. verifyArray(a, prt))
 end
 
 -- main program
